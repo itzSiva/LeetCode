@@ -1,17 +1,16 @@
 class Solution {
-    public String[] sortPeople(String[] n, int[] h) {
-        for(int i=0;i<n.length-1;i++){
-            for(int j=i+1;j<n.length;j++){
-                if(h[i]<h[j]){
-                   // int tem=h[i];
-                   // h[i]=h[j];
-                    //h[j]=tem;
-                     String temp=n[i];
-                    n[i]=n[j];
-                    n[j]=temp;
-                }
-            }
+    public String[] sortPeople(String[] names, int[] heights) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        int n=names.length;
+        String ans[]=new String[n];
+        int k=0;
+        for(int i=0;i<n;i++){
+            map.put(heights[i],i);
         }
-        return n;
+        Arrays.sort(heights);
+        for(int i=n-1;i>=0;i--){
+            ans[k++]=names[map.get(heights[i])];
+        }
+        return ans;
     }
 }
