@@ -1,38 +1,33 @@
 class Solution {
     public int garbageCollection(String[] garbage, int[] travel) {
-        int M=0,mind=-1,G=0,gind=-1,P=0,pind=-1;
+        int len=0,m_ind=-1,g_ind=-1,p_ind=-1;
         int j=0;
         for(String s:garbage){
-            for(int i=0;i<s.length();i++){
-                if(s.charAt(i)=='M'){
-                M++;
-                mind=j;
+                len=len+s.length();
+                if(s.contains("M")){
+                m_ind=j;
                 }
-                else if(s.charAt(i)=='G'){
-                G++;
-                gind=j;
+                if(s.contains("G")){
+                g_ind=j;
                 }
-                else if(s.charAt(i)=='P'){
-                P++;
-                pind=j;
+               if(s.contains("P")){
+                p_ind=j;
                 }  
-            }
             j++;
-           
         }
-        System.out.println(P);
+        
         int sum=0;
-        for(int i=0;i<mind;i++){
+        for(int i=0;i<m_ind;i++){
             sum+=travel[i];
         }
-         for(int i=0;i<pind;i++){
+         for(int i=0;i<p_ind;i++){
              sum+=travel[i];
         }
-         for(int i=0;i<gind;i++){
+         for(int i=0;i<g_ind;i++){
              sum+=travel[i];
         }
 
-            sum+=M+P+G;
-        return sum;
+      sum+=len;
+    return sum;
     }
 }
