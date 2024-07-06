@@ -1,6 +1,6 @@
 class Solution {
     public int garbageCollection(String[] garbage, int[] travel) {
-        int M=0,mind=0,G=0,gind=-1,P=-1,pind=-1;
+        int M=0,mind=-1,G=0,gind=-1,P=0,pind=-1;
         int j=0;
         for(String s:garbage){
             for(int i=0;i<s.length();i++){
@@ -33,6 +33,6 @@ class Solution {
         }
 
             sum+=M+P+G;
-        return sum+1;
+        return sum;
     }
 }
